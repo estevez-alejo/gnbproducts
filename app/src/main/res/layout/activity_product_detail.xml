@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="isLoading"
+            type="boolean" />
+
+        <variable
+            name="product"
+            type="com.alejoestevez.gnbproducts.data.model.Product" />
+
+        <variable
+            name="total"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cardview_light_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/loading_products"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/loading_product"
+            android:textAlignment="center"
+            app:visibleGone="@{isLoading}" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/cardview_light_background"
+            android:orientation="vertical"
+            app:visibleGone="@{!isLoading}">
+
+            <TextView
+                android:id="@+id/tv_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/item_horizontal_margin"
+                android:layout_marginEnd="@dimen/item_horizontal_margin"
+                android:textSize="@dimen/product_text"
+                android:textStyle="bold"
+                android:text="@{total}" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/transaction_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    app:layoutManager="LinearLayoutManager"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

@@ -83,4 +83,8 @@ public class Product implements Serializable {
         return total.setScale(2,
                 BigDecimal.ROUND_HALF_EVEN);
     }
+
+    public String getCountTransactions() {
+        return String.valueOf(transactions.size());
+    }
 }

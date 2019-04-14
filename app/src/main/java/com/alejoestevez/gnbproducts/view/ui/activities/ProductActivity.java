@@ -81,6 +81,7 @@ public class ProductActivity extends BaseActivity {
                     binding.setIsLoading(false);
                     product.setRates(rates);
                     binding.setTotal(getString(R.string.transaction_total, product.getTotalAmount()));
+                    binding.setTotaltransactions(getString(R.string.transactions_total, product.getCountTransactions()));
                 }
             }
         });

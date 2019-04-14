@@ -16,6 +16,10 @@
         <variable
             name="total"
             type="String" />
+
+        <variable
+            name="totaltransactions"
+            type="String" />
     </data>
 
     <LinearLayout
@@ -49,6 +53,16 @@
                 android:textSize="@dimen/product_text_highlight"
                 android:textStyle="bold"
                 android:text="@{total}"
+                />
+            <TextView
+                android:id="@+id/tv_total_transactions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/item_horizontal_margin"
+                android:layout_marginEnd="@dimen/item_horizontal_margin"
+                android:textSize="@dimen/product_text_highlight"
+                android:textStyle="bold"
+                android:text="@{totaltransactions}"
                 />
 
                 <androidx.recyclerview.widget.RecyclerView

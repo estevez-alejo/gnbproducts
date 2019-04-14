@@ -9,6 +9,7 @@ import com.alejoestevez.gnbproducts.data.model.Product;
 import com.alejoestevez.gnbproducts.data.model.Rate;
 import com.alejoestevez.gnbproducts.utilities.Constants;
 import com.alejoestevez.gnbproducts.view.adapter.TransactionAdapter;
+import com.alejoestevez.gnbproducts.viewmodels.Factory;
 import com.alejoestevez.gnbproducts.viewmodels.RatesViewModel;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DividerItemDecoration;
 
 public class ProductActivity extends BaseActivity {
 
@@ -56,12 +58,13 @@ public class ProductActivity extends BaseActivity {
 
     private void setAdapter() {
         TransactionAdapter transactionAdapter = new TransactionAdapter();
+        binding.transactionList.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         binding.transactionList.setAdapter(transactionAdapter);
         transactionAdapter.setProjectList(product.transactions);
     }
 
     private void setObserver() {
-        RatesViewModel.Factory ratesFactory = new RatesViewModel.Factory(
+        Factory ratesFactory = new Factory(
                 getApplication());
 
         ratesViewModel = ViewModelProviders.of(this, ratesFactory)

@@ -5,6 +5,7 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <dimen name="product_text">16sp</dimen>
+    <dimen name="product_text_highlight">24sp</dimen>
     <dimen name="logo_width">150dp</dimen>
     <dimen name="logo_height">125dp</dimen>
 </resources>

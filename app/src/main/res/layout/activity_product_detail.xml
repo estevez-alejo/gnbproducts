@@ -46,9 +46,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/item_horizontal_margin"
                 android:layout_marginEnd="@dimen/item_horizontal_margin"
-                android:textSize="@dimen/product_text"
+                android:textSize="@dimen/product_text_highlight"
                 android:textStyle="bold"
-                android:text="@{total}" />
+                android:text="@{total}"
+                />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/transaction_list"
@@ -56,7 +57,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    app:layoutManager="LinearLayoutManager"/>
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         </LinearLayout>
 

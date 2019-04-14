@@ -8,6 +8,10 @@
         <variable
             name="isLoading"
             type="boolean" />
+
+        <variable
+            name="total"
+            type="String" />
     </data>
 
     <LinearLayout
@@ -25,23 +29,23 @@
             android:textAlignment="center"
             app:visibleGone="@{isLoading}" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/cardview_light_background"
-            android:orientation="vertical"
-            app:visibleGone="@{!isLoading}">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cardview_light_background"
+        android:orientation="vertical"
+        app:visibleGone="@{!isLoading}">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:gravity="center_horizontal"
-                android:text="@string/product_list"
-                android:textAlignment="center"
-                android:textSize="@dimen/product_text"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_horizontal_margin"
+            android:layout_marginEnd="@dimen/item_horizontal_margin"
+            android:textSize="@dimen/product_text_highlight"
+            android:textStyle="bold"
+            android:text="@{total}"
+            />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/product_list"
@@ -49,9 +53,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    app:layoutManager="LinearLayoutManager"/>
-
-        </LinearLayout>
-
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    </LinearLayout>
     </LinearLayout>
 </layout>

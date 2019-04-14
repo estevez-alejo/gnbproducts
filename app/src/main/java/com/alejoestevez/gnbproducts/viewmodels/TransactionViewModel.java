@@ -31,24 +31,4 @@ public class TransactionViewModel extends AndroidViewModel {
         return productsLiveData;
     }
 
-    public LiveData<List<Product>> getNewProducts() {
-        transactionsLiveData = TransactionRepository.getInstance().getAllTransactions();
-        productsLiveData = TransactionRepository.getInstance().getAllProducts();
-        return productsLiveData;
-    }
-
-    public static class Factory extends ViewModelProvider.NewInstanceFactory {
-
-        @NonNull
-        private final Application application;
-
-        public Factory(@NonNull Application application) {
-            this.application = application;
-        }
-
-        @Override
-        public <T extends ViewModel> T create(Class<T> modelClass) {
-            return (T) new TransactionViewModel(application);
-        }
-    }
 }

@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.alejoestevez.gnbproducts.R;
 import com.alejoestevez.gnbproducts.databinding.FragmentProductsListBinding;
 import com.alejoestevez.gnbproducts.data.model.Product;
 import com.alejoestevez.gnbproducts.view.adapter.ProductAdapter;
+import com.alejoestevez.gnbproducts.viewmodels.Factory;
 import com.alejoestevez.gnbproducts.viewmodels.TransactionViewModel;
 
 import java.util.List;
@@ -34,18 +36,24 @@ public class ProductListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_products_list, container, false);
-
-        productAdapter = new ProductAdapter();
-        binding.productList.setAdapter(productAdapter);
-        binding.setIsLoading(true);
-
+        setProductAdapter();
         return binding.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        TransactionViewModel.Factory transactionFactory = new TransactionViewModel.Factory(
+        setTransactionViewModel();
+    }
+
+    private void setProductAdapter() {
+        productAdapter = new ProductAdapter();
+        binding.productList.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
+        binding.productList.setAdapter(productAdapter);
+
+    }
+    private void setTransactionViewModel() {
+        Factory transactionFactory = new Factory(
                 getActivity().getApplication());
 
         transactionViewModel = ViewModelProviders.of(this, transactionFactory)
@@ -61,6 +69,7 @@ public class ProductListFragment extends Fragment {
                 if (products != null) {
                     binding.setIsLoading(false);
                     productAdapter.setProductList(products);
+                    binding.setTotal(getString(R.string.products_total,String.valueOf(products.size())));
                 }
             }
         });

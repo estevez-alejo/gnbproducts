@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import com.alejoestevez.gnbproducts.data.model.Rate;
 import com.alejoestevez.gnbproducts.data.repository.RatesRepository;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public class RatesViewModel extends AndroidViewModel {
@@ -24,23 +25,4 @@ public class RatesViewModel extends AndroidViewModel {
         return ratesLiveData;
     }
 
-    public LiveData<List<Rate>> getNewRates() {
-        ratesLiveData = RatesRepository.getInstance().getRates();
-        return ratesLiveData;
-    }
-
-    public static class Factory extends ViewModelProvider.NewInstanceFactory {
-
-        @NonNull
-        private final Application application;
-
-        public Factory(@NonNull Application application) {
-            this.application = application;
-        }
-
-        @Override
-        public <T extends ViewModel> T create(Class<T> modelClass) {
-            return (T) new RatesViewModel(application);
-        }
-    }
 }

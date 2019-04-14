@@ -11,21 +11,13 @@
 
     </data>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/item_horizontal_margin"
-        android:layout_marginEnd="@dimen/item_horizontal_margin"
-        android:orientation="horizontal"
-        app:cardUseCompatPadding="true">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/item_horizontal_margin"
             android:layout_marginEnd="@dimen/item_horizontal_margin"
             android:orientation="vertical"
-            android:padding="5dp">
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/title"
@@ -38,5 +30,4 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
 </layout>

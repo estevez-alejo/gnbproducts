@@ -6,4 +6,6 @@
     <string name="app_title">GNB Products</string>
     <string name="product_detail">Product\'s Detail</string>
     <string name="transaction_total">​The total amount in € is: ​ %1$s</string>
+    <string name="products_total">​#Total Products: %1$s</string>
+    <string name="products_name">​SKU:  %1$s</string>
 </resources>
